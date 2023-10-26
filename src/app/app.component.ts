@@ -128,13 +128,6 @@ export class AppComponent implements AfterViewInit {
       duration: 0.75,
       delay: 11, // Animation duration in seconds
       ease: 'power1.inOut', // Easing function
-      // scrollTrigger: {
-      //   trigger: element,
-      //   start: 'top center+=100', // Start animation 100 pixels below the top of the viewport
-      //   end: 'bottom center', // End animation when the bottom of the element reaches the center of the viewport
-      //   scrub: true, // Smoothly scrub through the animation as the user scrolls
-      //   markers: true, // Show markers for debugging purposes (you can remove this in production)
-      // },
     });
 
     gsap.to(element, {
@@ -142,7 +135,14 @@ export class AppComponent implements AfterViewInit {
       y: 0,
       duration: 0.75,
       delay: 11, // Animation duration in seconds
-      ease: 'power1.inOut' // Easing function
+      ease: 'power1.inOut',
+      // scrollTrigger: {
+      //   trigger: element,
+      //   start: 'top center+=100', // Start animation 100 pixels below the top of the viewport
+      //   end: 'bottom center', // End animation when the bottom of the element reaches the center of the viewport
+      //   scrub: true, // Smoothly scrub through the animation as the user scrolls
+      //   markers: true, // Show markers for debugging purposes (you can remove this in production)
+      // }, // Easing function
     });
   }
 
