@@ -204,7 +204,7 @@ export class AppComponent implements AfterViewInit {
       delay: 10,
       scrollTrigger: {
         trigger: featureSection,
-        start: 'top bottom-=200',
+        start: 'top bottom-=100',
         end: 'bottom center',
         scrub: true,
       },
@@ -217,7 +217,7 @@ export class AppComponent implements AfterViewInit {
       delay: 10,
       scrollTrigger: {
         trigger: featureSection,
-        start: 'top bottom-=200',
+        start: 'top bottom-=100',
         end: 'bottom center',
         scrub: true,
       },
@@ -229,7 +229,7 @@ export class AppComponent implements AfterViewInit {
       duration: 1,
       scrollTrigger: {
         trigger: subHeader,
-        start: 'top bottom-=200',
+        start: 'top bottom-=100',
         end: 'bottom center',
         scrub: true,
       },
@@ -241,7 +241,7 @@ export class AppComponent implements AfterViewInit {
       duration: 1,
       scrollTrigger: {
         trigger: subHeader,
-        start: 'top bottom-=200',
+        start: 'top bottom-=100',
         end: 'bottom center',
         scrub: true,
       },
@@ -252,7 +252,7 @@ export class AppComponent implements AfterViewInit {
       duration: mainHeaderText.length * 0.1,
       scrollTrigger: {
         trigger: mainHeader,
-        start: 'top bottom-=200',
+        start: 'top bottom-=100',
         end: 'bottom center',
         // scrub: true,
       },
