@@ -160,7 +160,7 @@ export class AppComponent implements AfterViewInit {
     const mainHeaderText = 'Say Goodbye to International Payment Hassles';
     const featureSection = document.querySelector('.feature-section');
     const mainHeader = document.querySelector('.feature-section-mainHeader');
-    const subHeader = document.querySelector('.feature-section-subheader');
+    const subHeader = document.querySelector('.top-feature-section');
 
     gsap.to(featureSection, {
       opacity: 1,
@@ -170,29 +170,18 @@ export class AppComponent implements AfterViewInit {
         trigger: featureSection,
         start: 'top bottom-=100',
         end: 'center',
-      },
-    });
-
-    gsap.from(subHeader, {
-      opacity: 0,
-      y: -100,
-      duration: 1,
-      scrollTrigger: {
-        trigger: subHeader,
-        start: 'top bottom-=100',
-        end: 'bottom center',
         scrub: true,
       },
     });
 
     gsap.to(subHeader, {
-      opacity: 1,
       y: 0,
       duration: 1,
+      ease: 'power1.inOut',
       scrollTrigger: {
         trigger: subHeader,
         start: 'top bottom-=100',
-        end: 'bottom center',
+        end: 'bottom',
         scrub: true,
       },
     });
