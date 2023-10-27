@@ -2,7 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
 import TextPlugin from 'gsap/TextPlugin'; // Import the TextPlugin
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import CSSRulePlugin from 'gsap/CSSRulePlugin';
+// import CSSRulePlugin from 'gsap/CSSRulePlugin';
+import { CSSRulePlugin } from 'gsap/all';
 
 gsap.registerPlugin(TextPlugin); // Register the TextPlugin
 gsap.registerPlugin(ScrollTrigger);
@@ -16,6 +17,22 @@ gsap.registerPlugin(CSSRulePlugin);
 export class AppComponent implements AfterViewInit {
   title = 'FinanceFast-Website';
 
+  // Populate images for infinite logo slider 
+  logos: string[] = [
+    '/assets/svgs/icn-huffpost.svg',
+    '/assets/svgs/icn-bloomberg.svg',
+    '/assets/svgs/icn-techcrunch.svg',
+    '/assets/svgs/icn-harvard.svg',
+    '/assets/svgs/icn-combinator.svg',
+    '/assets/svgs/icn-fastcompany.svg',
+    '/assets/svgs/icn-huffpost.svg',
+    '/assets/svgs/icn-bloomberg.svg',
+    '/assets/svgs/icn-techcrunch.svg',
+    '/assets/svgs/icn-harvard.svg',
+    '/assets/svgs/icn-combinator.svg',
+    '/assets/svgs/icn-fastcompany.svg',
+  ]
+
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
@@ -24,7 +41,7 @@ export class AppComponent implements AfterViewInit {
     this.blinkCursor();
     this.mockups();
     this.partners();
-    this.carousel();
+    // this.carousel();
     // this.featureContainer();
   }
 
@@ -119,6 +136,7 @@ export class AppComponent implements AfterViewInit {
         // Change the page's overflow property to 'scroll'
         document.body.style.overflow = 'scroll';
         this.el.nativeElement.querySelector('.feature-section').style.display = 'flex';
+        this.carousel();
       }
     });
   }
@@ -127,39 +145,48 @@ export class AppComponent implements AfterViewInit {
     const carousel = this.el.nativeElement.querySelector('.carousel');
     const items = this.el.nativeElement.querySelectorAll('.carousel-item');
 
-    // Calculate total width of marquee
-    const totalWidth: any = Array.from(items).reduce((acc, item: any) => {
-      acc += item.offsetWidth;
-      return acc;
-    }, 0);
+    // gsap.to(carousel,{
+    //   xPercent: -100,
+    //   repeat: -1,
+    //   duration: 5,
+    //   delay: 8,
+    //   ease: 'linear',
+    //   force3D: true,
+    // }).totalProgress(0.5);
 
-    // Clone items to fill the marquee
-    let clones = '';
-    items.forEach((item: HTMLElement) => {
-      clones += item.outerHTML;
-    });
-    carousel.innerHTML += clones;
+    // // Calculate total width of marquee
+    // const totalWidth: any = Array.from(items).reduce((acc, item: any) => {
+    //   acc += item.offsetWidth;
+    //   return acc;
+    // }, 0);
 
-    // Set the width of marquee to fit all items
-    carousel.style.width = totalWidth * 2 + '%';
+    // // Clone items to fill the marquee
+    // let clones = '';
+    // items.forEach((item: HTMLElement) => {
+    //   clones += item.outerHTML;
+    // });
+    // carousel.innerHTML += clones;
 
-    // Create a GSAP timeline
-    const timeline = gsap.timeline({
-      repeat: -1, // Repeat infinitely
-      defaults: { ease: 'linear' },
-    });
+    // // Set the width of marquee to fit all items
+    // carousel.style.width = totalWidth * 2 + '%';
 
-    // Animation to move the marquee to the left
-    timeline.to(carousel, {
-      yoyo: true,
-      x: -carousel.style.width, // Move the marquee to the left by the total width of items
-      duration: carousel.style.width / 100, // Adjust the duration for the speed of the marquee (100 pixels per second in this case)
-      scrollTrigger: {
-        trigger: carousel,
-        start: 'start end', // Start the animation when the marquee starts and end when it ends
-        scrub: true, // Smoothly scrub through the animation as the user scrolls
-      },
-    });
+    // // Create a GSAP timeline
+    // const timeline = gsap.timeline({
+    //   repeat: -1, // Repeat infinitely
+    //   defaults: { ease: 'linear' },
+    // });
+
+    // // Animation to move the marquee to the left
+    // timeline.to(carousel, {
+    //   yoyo: true,
+    //   x: -carousel.style.width, // Move the marquee to the left by the total width of items
+    //   duration: carousel.style.width / 100, // Adjust the duration for the speed of the marquee (100 pixels per second in this case)
+    //   scrollTrigger: {
+    //     trigger: carousel,
+    //     start: 'start end', // Start the animation when the marquee starts and end when it ends
+    //     scrub: true, // Smoothly scrub through the animation as the user scrolls
+    //   },
+    // });
   }
 
   // featureContainer() {

@@ -18,3 +18,20 @@
     border-radius: 100%;
     display: inline-block;
 }
+
+@keyframes marquee{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-105.5%);
+    }
+}
+
+.carousel{
+    width: max-content;
+}
+
+.carousel-inner{
+    animation: 10s marquee infinite linear;
+}
