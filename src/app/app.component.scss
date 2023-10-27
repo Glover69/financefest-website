@@ -5,3 +5,16 @@
 .box-overlay.second{
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%);
 }
+
+.hero-lower{
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.hero-text-wrapper::after{
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    background-color: black;
+    border-radius: 100%;
+    display: inline-block;
+}
