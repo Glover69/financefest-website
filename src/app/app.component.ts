@@ -25,7 +25,7 @@ export class AppComponent implements AfterViewInit {
     this.mockups();
     this.partners();
     this.carousel();
-    this.featureContainer();
+    // this.featureContainer();
   }
 
   // Fade in animation for the main hero text
@@ -114,6 +114,11 @@ export class AppComponent implements AfterViewInit {
       duration: 1,
       delay: 8, // Animation duration in seconds
       ease: 'power1.inOut', // Easing function
+      onComplete: () => {
+        // Animation complete callback
+        // Change the page's overflow property to 'scroll'
+        document.body.style.overflow = 'scroll';
+      }
     });
   }
 
@@ -156,45 +161,45 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  featureContainer() {
-    const mainHeaderText = 'Say Goodbye to International Payment Hassles';
-    const featureSection = document.querySelector('.feature-section');
-    const mainHeader = document.querySelector('.feature-section-mainHeader');
-    const subHeader = document.querySelector('.top-feature-section');
+  // featureContainer() {
+  //   const mainHeaderText = 'Say Goodbye to International Payment Hassles';
+  //   const featureSection = document.querySelector('.feature-section');
+  //   const mainHeader = document.querySelector('.feature-section-mainHeader');
+  //   const subHeader = document.querySelector('.top-feature-section');
 
-    gsap.to(featureSection, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: featureSection,
-        start: 'top bottom-=100',
-        end: 'center',
-        scrub: true,
-      },
-    });
+  //   gsap.to(featureSection, {
+  //     opacity: 1,
+  //     y: 0,
+  //     duration: 1,
+  //     scrollTrigger: {
+  //       trigger: featureSection,
+  //       start: 'top bottom-=100',
+  //       end: 'center',
+  //       scrub: true,
+  //     },
+  //   });
 
-    gsap.to(subHeader, {
-      y: 0,
-      duration: 1,
-      ease: 'power1.inOut',
-      scrollTrigger: {
-        trigger: subHeader,
-        start: 'top bottom-=100',
-        end: 'bottom',
-        scrub: true,
-      },
-    });
+  //   gsap.to(subHeader, {
+  //     y: 0,
+  //     duration: 1,
+  //     ease: 'power1.inOut',
+  //     scrollTrigger: {
+  //       trigger: subHeader,
+  //       start: 'top bottom-=100',
+  //       end: 'bottom',
+  //       scrub: true,
+  //     },
+  //   });
 
-    gsap.to(mainHeader, {
-      text: mainHeaderText,
-      duration: mainHeaderText.length * 0.1,
-      scrollTrigger: {
-        trigger: mainHeader,
-        start: 'top bottom-=100',
-        end: 'bottom center',
-        // scrub: true,
-      },
-    });
-  }
+  //   gsap.to(mainHeader, {
+  //     text: mainHeaderText,
+  //     duration: mainHeaderText.length * 0.1,
+  //     scrollTrigger: {
+  //       trigger: mainHeader,
+  //       start: 'top bottom-=100',
+  //       end: 'bottom center',
+  //       // scrub: true,
+  //     },
+  //   });
+  // }
 }
