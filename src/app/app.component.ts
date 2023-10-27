@@ -66,7 +66,7 @@ export class AppComponent implements AfterViewInit {
   // Fade in animation for the sub hero text
 
   fadeInFromLeft() {
-    const element = this.el.nativeElement.querySelector('.subHeroText');
+    const element = this.el.nativeElement.querySelectorAll('.subHeroText');
 
     gsap.to(element, {
       opacity: 1,
@@ -118,6 +118,7 @@ export class AppComponent implements AfterViewInit {
         // Animation complete callback
         // Change the page's overflow property to 'scroll'
         document.body.style.overflow = 'scroll';
+        this.el.nativeElement.querySelector('.feature-section').style.display = 'flex';
       }
     });
   }
