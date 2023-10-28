@@ -19,6 +19,10 @@
     display: inline-block;
 }
 
+.single-currency:nth-child(3) .symbol-container {
+    background-color: #563ACC;
+}
+
 @keyframes marquee{
     from{
         transform: translateX(0);
@@ -35,3 +39,11 @@
 .carousel-inner{
     animation: 10s marquee infinite linear;
 }
+
+// .white-container{
+//     transform: translateY(-300px);
+// }
+
+// .white-container:nth-child(2){
+//     transform: translateX(2rem);
+// }

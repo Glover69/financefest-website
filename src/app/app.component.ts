@@ -1,13 +1,21 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
-import { gsap } from 'gsap';
-import TextPlugin from 'gsap/TextPlugin'; // Import the TextPlugin
+import { gsap, random } from 'gsap';
+import TextPlugin from 'gsap/TextPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-// import CSSRulePlugin from 'gsap/CSSRulePlugin';
-import { CSSRulePlugin } from 'gsap/all';
+import CSSRulePlugin from 'gsap/CSSRulePlugin';
+import CustomBounce from 'gsap-trial/CustomBounce';
+import CustomEase from 'gsap-trial/CustomEase';
 
-gsap.registerPlugin(TextPlugin); // Register the TextPlugin
+gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(CSSRulePlugin);
+gsap.registerPlugin(CustomEase, CustomBounce);
+
+export interface CurrencyConvert {
+  image: string;
+  title: string;
+  subTitle: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -17,21 +25,34 @@ gsap.registerPlugin(CSSRulePlugin);
 export class AppComponent implements AfterViewInit {
   title = 'FinanceFast-Website';
 
-  // Populate images for infinite logo slider 
-  logos: string[] = [
-    '/assets/svgs/icn-huffpost.svg',
-    '/assets/svgs/icn-bloomberg.svg',
-    '/assets/svgs/icn-techcrunch.svg',
-    '/assets/svgs/icn-harvard.svg',
-    '/assets/svgs/icn-combinator.svg',
-    '/assets/svgs/icn-fastcompany.svg',
-    '/assets/svgs/icn-huffpost.svg',
-    '/assets/svgs/icn-bloomberg.svg',
-    '/assets/svgs/icn-techcrunch.svg',
-    '/assets/svgs/icn-harvard.svg',
-    '/assets/svgs/icn-combinator.svg',
-    '/assets/svgs/icn-fastcompany.svg',
-  ]
+  // Populating currency containers
+  currencyConvert: CurrencyConvert[] = [
+    {
+      image: '/assets/svgs/currency-lira.svg',
+      title: 'Turkish Lira',
+      subTitle: '₦‎ 340 to ₺1 + ₦2,500 hidden conversion fee',
+    },
+    {
+      image: '/assets/svgs/currency-rand.svg',
+      title: 'South Africa Rand',
+      subTitle: '₦‎ 470 to R1 + ₦3,100 hidden conversion fee',
+    },
+    {
+      image: '/assets/svgs/currency-dollar.svg',
+      title: 'United States Dollar',
+      subTitle: '₦‎ 770 to $1 + ₦‎ 3,000 hidden conversion fee',
+    },
+    {
+      image: '/assets/svgs/currency-won.svg',
+      title: 'South Korean Won',
+      subTitle: '₦‎ 470 to ₩1 + ₦‎ 5,000 hidden conversion fee',
+    },
+    {
+      image: '/assets/svgs/currency-yuan.svg',
+      title: 'Chinese Yuan',
+      subTitle: '₦‎ 470 to  ¥1 + ₦‎ 3,200 hidden conversion fee',
+    },
+  ];
 
   constructor(private el: ElementRef) {}
 
@@ -41,6 +62,7 @@ export class AppComponent implements AfterViewInit {
     this.blinkCursor();
     this.mockups();
     this.partners();
+    this.bounce();
     // this.carousel();
     // this.featureContainer();
   }
@@ -53,7 +75,7 @@ export class AppComponent implements AfterViewInit {
   private cursorBlinkSpeed = 0.5; // Cursor blinking speed
 
   private blinkCursor(): void {
-    const cursor = CSSRulePlugin.getRule(".hero-text-wrapper::after");
+    const cursor = CSSRulePlugin.getRule('.hero-text-wrapper::after');
     const element = this.el.nativeElement.querySelector('.mainHeroText');
     const blueTextelement = this.el.nativeElement.querySelector('.blue-text');
 
@@ -100,7 +122,7 @@ export class AppComponent implements AfterViewInit {
     const element = this.el.nativeElement.querySelector('.hero-lower');
 
     gsap.to(element, {
-     'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
+      'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
       opacity: 1,
       y: 0,
       duration: 1.5,
@@ -135,99 +157,52 @@ export class AppComponent implements AfterViewInit {
         // Animation complete callback
         // Change the page's overflow property to 'scroll'
         document.body.style.overflow = 'scroll';
-        this.el.nativeElement.querySelector('.feature-section').style.display = 'flex';
-        this.carousel();
-      }
+        this.el.nativeElement.querySelector('.feature-section').style.display =
+          'flex';
+      },
     });
   }
 
-  private carousel(): void {
-    const carousel = this.el.nativeElement.querySelector('.carousel');
-    const items = this.el.nativeElement.querySelectorAll('.carousel-item');
+  bounce() {
+    CustomBounce.create('myBounce', {
+      strength: 0.5,
+      squash: 0,
+      squashID: 'myBounce-squash',
+    });
 
-    // gsap.to(carousel,{
-    //   xPercent: -100,
-    //   repeat: -1,
-    //   duration: 5,
-    //   delay: 8,
-    //   ease: 'linear',
-    //   force3D: true,
-    // }).totalProgress(0.5);
+    // gsap.from('.white-container',{
+    //   y: -150
+    // })
 
-    // // Calculate total width of marquee
-    // const totalWidth: any = Array.from(items).reduce((acc, item: any) => {
-    //   acc += item.offsetWidth;
-    //   return acc;
-    // }, 0);
+    gsap.to('.white-container', {
+      delay: 0.5,
+      duration: 5,
+      y: '0',
+      // rotate: ,
+      transformOrigin: 'top center',
+      ease: 'myBounce',
+      repeat: 0,
+      repeatDelay: 1.5,
+      stagger: 0.25,
+      scrollTrigger: {
+        trigger: '.white-container',
+        // pin the trigger element while active
+        start: 'top 300px',
+        end: 'top 100px', // end after scrolling 500px beyond the start
+        markers: true,
+      },
+    });
 
-    // // Clone items to fill the marquee
-    // let clones = '';
-    // items.forEach((item: HTMLElement) => {
-    //   clones += item.outerHTML;
-    // });
-    // carousel.innerHTML += clones;
-
-    // // Set the width of marquee to fit all items
-    // carousel.style.width = totalWidth * 2 + '%';
-
-    // // Create a GSAP timeline
-    // const timeline = gsap.timeline({
-    //   repeat: -1, // Repeat infinitely
-    //   defaults: { ease: 'linear' },
-    // });
-
-    // // Animation to move the marquee to the left
-    // timeline.to(carousel, {
-    //   yoyo: true,
-    //   x: -carousel.style.width, // Move the marquee to the left by the total width of items
-    //   duration: carousel.style.width / 100, // Adjust the duration for the speed of the marquee (100 pixels per second in this case)
-    //   scrollTrigger: {
-    //     trigger: carousel,
-    //     start: 'start end', // Start the animation when the marquee starts and end when it ends
-    //     scrub: true, // Smoothly scrub through the animation as the user scrolls
-    //   },
-    // });
+    //the squish which affects scaleX and scaleY. To make the effect stronger/weaker, just change the scaleX/scaleY values:
+    gsap.to('.white-container', {
+      delay: 0.2,
+      duration: 6,
+      scaleX: 1,
+      scaleY: 1,
+      ease: 'myBounce-squash',
+      transformOrigin: 'bottom',
+      repeat: 0,
+      repeatDelay: 1.5,
+    });
   }
-
-  // featureContainer() {
-  //   const mainHeaderText = 'Say Goodbye to International Payment Hassles';
-  //   const featureSection = document.querySelector('.feature-section');
-  //   const mainHeader = document.querySelector('.feature-section-mainHeader');
-  //   const subHeader = document.querySelector('.top-feature-section');
-
-  //   gsap.to(featureSection, {
-  //     opacity: 1,
-  //     y: 0,
-  //     duration: 1,
-  //     scrollTrigger: {
-  //       trigger: featureSection,
-  //       start: 'top bottom-=100',
-  //       end: 'center',
-  //       scrub: true,
-  //     },
-  //   });
-
-  //   gsap.to(subHeader, {
-  //     y: 0,
-  //     duration: 1,
-  //     ease: 'power1.inOut',
-  //     scrollTrigger: {
-  //       trigger: subHeader,
-  //       start: 'top bottom-=100',
-  //       end: 'bottom',
-  //       scrub: true,
-  //     },
-  //   });
-
-  //   gsap.to(mainHeader, {
-  //     text: mainHeaderText,
-  //     duration: mainHeaderText.length * 0.1,
-  //     scrollTrigger: {
-  //       trigger: mainHeader,
-  //       start: 'top bottom-=100',
-  //       end: 'bottom center',
-  //       // scrub: true,
-  //     },
-  //   });
-  // }
 }
