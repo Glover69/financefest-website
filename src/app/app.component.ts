@@ -62,7 +62,7 @@ export class AppComponent implements AfterViewInit {
     this.blinkCursor();
     this.mockups();
     this.partners();
-    this.bounce();
+    // this.bounce();
     // this.carousel();
     // this.featureContainer();
   }
