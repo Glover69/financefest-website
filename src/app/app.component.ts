@@ -59,11 +59,11 @@ export class AppComponent implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    this.fadeInFromLeft();
-    this.fadeInFromCenter();
-    this.blinkCursor();
-    this.mockups();
-    this.partners();
+    // this.fadeInFromLeft();
+    // this.fadeInFromCenter();
+    // this.blinkCursor();
+    // this.mockups();
+    // this.partners();
     // this.bounce();
     // this.carousel();
     // this.featureContainer();
@@ -175,9 +175,9 @@ export class AppComponent implements AfterViewInit {
       onComplete: () => {
         // Animation complete callback
         // Change the page's overflow property to 'scroll'
-        document.body.style.overflowY = 'scroll';
-        this.el.nativeElement.querySelector('.feature-section').style.display =
-          'flex';
+        // document.body.style.overflowY = 'scroll';
+        // this.el.nativeElement.querySelector('.feature-section').style.display =
+        //   'flex';
       },
     });
   }

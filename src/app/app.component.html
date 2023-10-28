@@ -51,9 +51,20 @@
             world with confidence and ease.</span>
         </div>
 
+        <!-- Lower section of the hero, input section -->
         <div
           class="hero-lower rounded-[2rem] md:p-1 px-8 py-3 md:border-[1px] border-[#94949480] flex flex-col md:flex-row items-center gap-6 w-full md:w-[25rem] opacity-0 translate-y-16">
-          <input type="text" class="md:border-0 rounded-3xl px-8 py-3 border-2 border-[#94949480] w-full md:w-[50%]" />
+
+          <div class="input-wrapper relative w-full md:w-[50%]">
+            <div class="country-select absolute flex flex-row items-center gap-1 top-[0.95rem] left-4">
+              <div class="flag-container w-5 h-5 rounded-full bg-[url('/assets/images/nigeria-flag.jpeg')] bg-cover bg-center">
+  
+              </div>
+              <img class="w-4" src="/assets/svgs/chevron-down.svg" alt="">
+            </div>
+
+            <input type="text" placeholder="+234" class="md:border-0 rounded-3xl pl-16 px-8 py-3 border-2 border-[#94949480] w-full" />
+          </div>
           <button class="rounded-3xl bg-[#563ACC] px-8 py-3 text-white font-[Satoshi-Light] w-full md:w-[50%]">
             Download Now
           </button>
@@ -105,7 +116,7 @@
   </section>
 
   <!-- First feature section -->
-  <section class="feature-section p-6 md:p-10 lg:p-14 pt-20 xl:px-32 xl:py-16 2xl:px-40 hidden flex-col items-center gap-8">
+  <section class="feature-section p-6 md:p-10 lg:p-14 pt-20 xl:px-32 xl:py-16 2xl:px-40 3xl:px-72 hidden flex-col items-center gap-8">
     <!-- Lower part of the feature section -->
     <div class="top-feature-section md:w-[55%] flex flex-col items-center justify-center text-center gap-2">
       <span class="feature-section-subHeader text-[#6364FF] uppercase text-[0.75rem] font-[Satoshi-Medium]">Cross-Border
@@ -199,7 +210,7 @@
 
 
   <!-- Second feature section -->
-  <section class="feature-section p-6 md:p-10 lg:p-14 pt-20 xl:px-32 xl:py-16 2xl:px-40 flex flex-col items-center gap-8">
+  <section class="feature-section p-6 md:p-10 lg:p-14 pt-20 xl:px-32 xl:py-16 2xl:px-40 3xl:px-72 flex flex-col items-center gap-8">
     <!-- Upper part of the feature section -->
     <div class="top-feature-section md:w-[55%] flex flex-col items-center justify-center text-center gap-2">
       <span class="feature-section-subHeader text-[#6364FF] uppercase text-[0.75rem] font-[Satoshi-Medium]">real-time
@@ -258,7 +269,7 @@
 
 
   <!-- Third feature section -->
-  <section class="feature-section p-6 md:p-10 lg:p-14 pt-20 xl:px-32 xl:py-16 2xl:px-40 flex flex-col items-center gap-8">
+  <section class="feature-section p-6 md:p-10 lg:p-14 pt-20 xl:px-32 xl:py-16 2xl:px-40 3xl:px-72 flex flex-col items-center gap-8">
     <!-- Upper part of the feature section -->
     <div class="top-feature-section md:w-[55%] flex flex-col items-center justify-center text-center gap-2">
       <span class="feature-section-subHeader text-[#6364FF] uppercase text-[0.75rem] font-[Satoshi-Medium]">Easily
@@ -347,7 +358,7 @@
   </section>
 
   <!-- Blue feature section (International payments) -->
-  <section class="feature-section p-6 md:px-[25%]  lg:p-14 xl:px-32 xl:py-16 2xl:px-40">
+  <section class="feature-section p-6 md:px-[25%]  lg:p-14 xl:px-32 xl:py-16 2xl:px-40 3xl:px-72">
 
     <div
       class="blue-container relative p-6 md:px-10 py-14 overflow-hidden rounded-3xl bg-[#5A5DF7] bg-[url('/assets/svgs/circle-group-sm.svg')] lg:bg-[url('/assets/svgs/circle-group-xl.svg')]] bg-cover bg-[8rem] lg:bg-[length:30rem] lg:bg-right bg-no-repeat w-full flex flex-col lg:flex-row items-start lg:items-center gap-10">
@@ -439,4 +450,6 @@
 
     </div>
   </section>
+
+  <app-testimonials></app-testimonials>
 </section>
