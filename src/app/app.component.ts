@@ -3,13 +3,13 @@ import { gsap, random } from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
-import CustomBounce from 'gsap-trial/CustomBounce';
-import CustomEase from 'gsap-trial/CustomEase';
+// import CustomBounce from 'gsap-trial/CustomBounce';
+// import CustomEase from 'gsap-trial/CustomEase';
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(CSSRulePlugin);
-gsap.registerPlugin(CustomEase, CustomBounce);
+// gsap.registerPlugin(CustomEase, CustomBounce);
 
 export interface CurrencyConvert {
   image: string;
@@ -164,45 +164,14 @@ export class AppComponent implements AfterViewInit {
   }
 
   bounce() {
-    CustomBounce.create('myBounce', {
-      strength: 0.5,
-      squash: 0,
-      squashID: 'myBounce-squash',
-    });
+    // CustomBounce.create('myBounce', {
+      // strength: 0.5,
+       // squash: 0,
+      // squashID: 'myBounce-squash',
+    // }); 
 
     // gsap.from('.white-container',{
     //   y: -150
     // })
-
-    gsap.to('.white-container', {
-      delay: 0.5,
-      duration: 5,
-      y: '0',
-      // rotate: ,
-      transformOrigin: 'top center',
-      ease: 'myBounce',
-      repeat: 0,
-      repeatDelay: 1.5,
-      stagger: 0.25,
-      scrollTrigger: {
-        trigger: '.white-container',
-        // pin the trigger element while active
-        start: 'top 300px',
-        end: 'top 100px', // end after scrolling 500px beyond the start
-        markers: true,
-      },
-    });
-
-    //the squish which affects scaleX and scaleY. To make the effect stronger/weaker, just change the scaleX/scaleY values:
-    gsap.to('.white-container', {
-      delay: 0.2,
-      duration: 6,
-      scaleX: 1,
-      scaleY: 1,
-      ease: 'myBounce-squash',
-      transformOrigin: 'bottom',
-      repeat: 0,
-      repeatDelay: 1.5,
-    });
   }
 }
