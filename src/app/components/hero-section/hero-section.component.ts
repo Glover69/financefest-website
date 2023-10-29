@@ -58,13 +58,13 @@ export class HeroSectionComponent implements AfterViewInit {
       },
     });
 
-    gsap.to(cursor, {
-      opacity: 0,
-      repeat: -1, // Repeat the animation indefinitely
-      yoyo: true, // Reverse the animation (blink effect)
-      duration: this.cursorBlinkSpeed,
-      force3D: true,
-    });
+    // gsap.to(cursor, {
+    //   opacity: 0,
+    //   repeat: -1, // Repeat the animation indefinitely
+    //   yoyo: true, // Reverse the animation (blink effect)
+    //   duration: this.cursorBlinkSpeed,
+    //   force3D: true,
+    // });
   }
 
 

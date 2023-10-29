@@ -61,6 +61,7 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.mockups();
     this.partners();
+    // this.testimonials();
     // this.bounce();
     // this.carousel();
     // this.featureContainer();

@@ -3,7 +3,6 @@ import { gsap, random } from 'gsap';
 import TextPlugin from 'gsap/TextPlugin';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,20 +20,38 @@ export class TestimonialsComponent implements AfterViewInit {
 
   testimonials() {
     const scrollWrapper = gsap.utils.toArray<HTMLElement>('.wrapper');
-    // const scrollContainer = this.el.nativeElement.querySelector(
-    //   '.scroll-wrapper-testimonials'
-    // );
+    const scrollContainer = document.getElementsByClassName(
+      '.scroll-wrapper-testimonials'
+    )[0];
 
     gsap.to(scrollWrapper, {
       xPercent: -100 * scrollWrapper.length,
       ease: 'none',
       scrollTrigger: {
         trigger: '.testimonials-section',
-        start: 'top',
+        // start: 'top',
         pin: true,
-        scrub: 1,
-        end: '+=2000',
+        // scrub: 1,
+        // end: '+=3000',
+        // markers: true,
       },
+
     });
+
+    // gsap.to(scrollContainer, {
+    //   x: () =>
+    //   -100 * (scrollWrapper.length) +
+    //     'px',
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: '.testimonials-section',
+    //     invalidateOnRefresh: true,
+    //     pin: true,
+    //     scrub: 1,
+    //     // end: () => '+=' + scrollContainer.offsetWidth,
+    //   },
+    // });
+
+    console.log(-100 * scrollWrapper.length);
   }
 }
