@@ -59,12 +59,12 @@ export class AppComponent implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    // this.fadeInFromLeft();
-    // this.fadeInFromCenter();
-    // this.blinkCursor();
-    // this.mockups();
-    // this.partners();
-    // this.bounce();
+    this.fadeInFromLeft();
+    this.fadeInFromCenter();
+    this.blinkCursor();
+    this.mockups();
+    this.partners();
+    this.bounce();
     // this.carousel();
     // this.featureContainer();
   }
