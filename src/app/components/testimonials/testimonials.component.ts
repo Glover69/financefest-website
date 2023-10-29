@@ -26,20 +26,30 @@ export class TestimonialsComponent implements AfterViewInit {
   constructor(private el: ElementRef){}
 
   testimonials(){
-    const scrollWrapper = this.el.nativeElement.querySelector('.lower-testimonials-section');
-    const mainContainer = this.el.nativeElement.querySelector('scroll-wrapper-testimonials');
+    const scrollWrapper = gsap.utils.toArray<HTMLElement>('.wrapper');
+    const scrollContainer = this.el.nativeElement.querySelector('.scroll-wrapper-testimonials');
 
+  //   // Calculate the total width of all child elements
+  // const totalWidth = scrollWrapper.reduce((acc, child) => {
+  //   const childWidth = child.clientWidth; // Use clientWidth to get the element's width
+  //   return acc + childWidth;
+  // }, 0);
 
-    gsap.to( scrollWrapper, {
-      xPercent: -100 * (scrollWrapper.length -1),
+  // // Calculate the scroll percentage based on the total width and parent container's width
+  // const scrollPercentage = -(totalWidth - scrollWrapper[0].parentElement.clientWidth) / totalWidth * 100;
+
+    gsap.to(scrollWrapper, {
+      xPercent: -100 * (scrollWrapper.length),
       ease: "none",
       scrollTrigger: {
-        trigger: mainContainer,
+        trigger: '.testimonials-section',
         pin: true,
         scrub: 1,
-        end: "+=3000"
+        end: '+=2000'
       }
     })
+
+    console.log(-100 * (scrollContainer.length))
   }
 
 }
