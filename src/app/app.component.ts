@@ -64,7 +64,7 @@ export class AppComponent implements AfterViewInit {
     this.blinkCursor();
     this.mockups();
     this.partners();
-    this.bounce();
+    // this.bounce();
     // this.carousel();
     // this.featureContainer();
   }
@@ -182,42 +182,42 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  bounce() {
-    CustomBounce.create('myBounce', {
-      strength: 0.5,
-      squash: 0,
-      squashID: 'myBounce-squash',
-    });
+  // bounce() {
+  //   CustomBounce.create('myBounce', {
+  //     strength: 0.5,
+  //     squash: 0,
+  //     squashID: 'myBounce-squash',
+  //   });
 
-    gsap.to('.white-container', {
-      delay: 0.5,
-      duration: 5,
-      y: '0',
-      // rotate: ,
-      transformOrigin: 'top center',
-      ease: 'myBounce',
-      repeat: 0,
-      repeatDelay: 1.5,
-      stagger: 0.25,
-      scrollTrigger: {
-        trigger: '.white-container',
-        // pin the trigger element while active
-        start: 'top 300px',
-        end: 'top 100px', // end after scrolling 500px beyond the start
-        markers: true,
-      },
-    });
+  //   gsap.to('.white-container', {
+  //     delay: 0.5,
+  //     duration: 5,
+  //     y: '0',
+  //     // rotate: ,
+  //     transformOrigin: 'top center',
+  //     ease: 'myBounce',
+  //     repeat: 0,
+  //     repeatDelay: 1.5,
+  //     stagger: 0.25,
+  //     scrollTrigger: {
+  //       trigger: '.white-container',
+  //       // pin the trigger element while active
+  //       start: 'top 300px',
+  //       end: 'top 100px', // end after scrolling 500px beyond the start
+  //       markers: true,
+  //     },
+  //   });
 
-    //the squish which affects scaleX and scaleY. To make the effect stronger/weaker, just change the scaleX/scaleY values:
-    gsap.to('.white-container', {
-      delay: 0.2,
-      duration: 6,
-      scaleX: 1,
-      scaleY: 1,
-      ease: 'myBounce-squash',
-      transformOrigin: 'bottom',
-      repeat: 0,
-      repeatDelay: 1.5,
-    });
-  }
+  //   //the squish which affects scaleX and scaleY. To make the effect stronger/weaker, just change the scaleX/scaleY values:
+  //   gsap.to('.white-container', {
+  //     delay: 0.2,
+  //     duration: 6,
+  //     scaleX: 1,
+  //     scaleY: 1,
+  //     ease: 'myBounce-squash',
+  //     transformOrigin: 'bottom',
+  //     repeat: 0,
+  //     repeatDelay: 1.5,
+  //   });
+  // }
 }

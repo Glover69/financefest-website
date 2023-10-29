@@ -43,13 +43,12 @@ export class TestimonialsComponent implements AfterViewInit {
       ease: "none",
       scrollTrigger: {
         trigger: '.testimonials-section',
+        start: 'top',
         pin: true,
         scrub: 1,
         end: '+=2000'
       }
     })
-
-    console.log(-100 * (scrollContainer.length))
   }
 
 }
