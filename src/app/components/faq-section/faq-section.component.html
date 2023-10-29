@@ -1,0 +1,19 @@
+<section class="entire-faq-section p-6 md:p-16 lg:p-20 pt-20 xl:px-32 xl:py-20 2xl:px-48 3xl:px-80 flex flex-col items-center gap-12">
+    <!-- Upper part of the FAQ section -->
+    <div class="top-faq-section md:w-[55%] flex flex-col items-center justify-center text-center gap-2">
+        <span
+            class="faq-section-subHeader text-[#6364FF] uppercase text-[0.75rem] font-[Satoshi-Medium]">FAQ’S</span>
+        <span class="faq-section-mainHeader font-[Grifter-Bold] text-3xl text-[#1A1A1A]">Got questions?</span>
+        <span class="faq-section-subheader font-[Satoshi-Light] text-[#3A3A3A]">Get the answers to your questions about FastFinance.</span>
+    </div>
+
+    <!-- Lower part of the FAQ section (i.e. Accordions) -->
+    <div class="lower-faq-section flex flex-col gap-8 items-start w-full lg:w-[70%]">
+        <div class="single-tile w-full" *ngFor="let content of content">
+            <app-faq-accordion class="flex flex-col gap-4 pb-4 border-b border-[#94949480]" [title]="content.title" [content]="content.content"
+                [isExpanded]="content.isExpanded"></app-faq-accordion>
+
+        </div>
+    </div>
+
+</section>

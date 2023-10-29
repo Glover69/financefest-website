@@ -1,0 +1,19 @@
+.single-tile:nth-last-child(2) app-faq-accordion{
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .single-tile:nth-last-child(1) app-faq-accordion{
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .single-tile:nth-last-child(1) app-faq-accordion{
+        border: 0;
+    }
+
+    .single-tile:nth-last-child(2) app-faq-accordion{
+        border-bottom: 1px solid #94949480;
+    }
+}

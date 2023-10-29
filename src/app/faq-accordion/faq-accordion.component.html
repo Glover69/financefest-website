@@ -1,0 +1,8 @@
+<div class="tile-header flex flex-row items-center justify-between" (click)="toggleAccordion()">
+    <span class="header-txt font-[Grifter-Bold] text-lg">{{title}}</span>
+    <img [class.expanded]="expanded" class="rotate-0" src="/assets/svgs/chevron-down.svg" alt="">
+</div>
+
+<div class="tile-content" [class.expanded]="expanded" *ngIf="expanded">
+    <span class="font-[Satoshi-Regular] text-[#3A3A3A]">{{content}}</span>
+</div>
