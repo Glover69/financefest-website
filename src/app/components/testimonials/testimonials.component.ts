@@ -21,9 +21,9 @@ export class TestimonialsComponent implements AfterViewInit {
 
   testimonials() {
     const scrollWrapper = gsap.utils.toArray<HTMLElement>('.wrapper');
-    const scrollContainer = this.el.nativeElement.querySelector(
-      '.scroll-wrapper-testimonials'
-    );
+    // const scrollContainer = this.el.nativeElement.querySelector(
+    //   '.scroll-wrapper-testimonials'
+    // );
 
     gsap.to(scrollWrapper, {
       xPercent: -100 * scrollWrapper.length,
