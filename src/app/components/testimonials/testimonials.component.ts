@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class TestimonialsComponent implements AfterViewInit {
   ngAfterViewInit(): void {
-    this.testimonials();
+    // this.testimonials();
   }
 
   constructor(private el: ElementRef) {}

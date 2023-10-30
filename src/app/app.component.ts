@@ -93,9 +93,9 @@ export class AppComponent implements AfterViewInit {
       onComplete: () => {
         // Animation complete callback
         // Change the page's overflow property to 'scroll'
-        document.body.style.overflowY = 'scroll';
-        this.el.nativeElement.querySelector('.feature-section').style.display =
-          'flex';
+        // document.body.style.overflowY = 'scroll';
+        // this.el.nativeElement.querySelector('.feature-section').style.display =
+        //   'flex';
       },
     });
   }

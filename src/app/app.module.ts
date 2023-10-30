@@ -7,6 +7,7 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { FaqSectionComponent } from './components/faq-section/faq-section.component';
 import { FaqAccordionComponent } from './faq-accordion/faq-accordion.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FaqAccordionComponent } from './faq-accordion/faq-accordion.component';
     TestimonialsComponent,
     HeroSectionComponent,
     FaqSectionComponent,
-    FaqAccordionComponent
+    FaqAccordionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
